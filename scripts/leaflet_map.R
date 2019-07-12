@@ -1,7 +1,8 @@
 library(leaflet)
 library(tidyverse)
+library(here)
 
-providers <- read_rds("tidy_inputs/providers.RDS")
+providers <- read_rds(here("tidy_inputs/providers.RDS"))
 
 providers_map <- providers %>%
   leaflet() %>%
