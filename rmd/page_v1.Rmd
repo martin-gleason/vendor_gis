@@ -1,0 +1,17 @@
+---
+title: "Leaflet v1"
+author: "Martin Gleason, MS"
+date: "7/12/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(tidyverse)
+source("scripts/leaflet_map.R")
+```
+
+```{r map, echo = FALSE}
+providers_map
+```
