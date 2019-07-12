@@ -8,10 +8,25 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(here)
-source(here("scripts/leaflet_map.R"))
+library(lubridate)
+library(kableExtra)
+source(here::here("scripts/leaflet_map.R"))
 
+
+# Set data/output directories
 ```
 
 ```{r map, echo = FALSE}
 providers_map
+```
+
+```{r count, echo = FALSE, include = TRUE}
+
+today <- today() %>% 
+  format("%A, %B %d, %Y")
+
+city_numbers %>% 
+  rename("CPD District" = dist_label) %>%
+  kable(caption = paste("Provider Per Police District, as of ", today)) %>%
+  kable_styling(bootstrap_options = c("striped", "responsive"), full_width = TRUE)
 ```
